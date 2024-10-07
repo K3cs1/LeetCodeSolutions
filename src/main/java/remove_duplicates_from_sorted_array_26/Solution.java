@@ -28,25 +28,12 @@ public class Solution {
             }
         }
         Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-        List<Integer> uniqueList = numSet.stream().sorted().collect(Collectors.toList());
+        List<Integer> uniqueList = numSet.stream().sorted().toList();
         for (int i = 0; i < uniqueList.size(); i++) {
             nums[i] = uniqueList.get(i);
         }
         Arrays.fill(nums, numSet.size(), nums.length, 0);
         return numSet.size();
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{ 1, 1, 2 };
-        Solution solution = new Solution();
-        System.out.println(solution.removeDuplicates(nums));
-        System.out.println(Arrays.toString(nums));
-
-        System.out.println("---");
-
-        nums = new int[]{ 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-        System.out.println(solution.removeDuplicates(nums));
-        System.out.println(Arrays.toString(nums));
     }
 
 }

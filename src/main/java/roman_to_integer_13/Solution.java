@@ -1,12 +1,11 @@
 package roman_to_integer_13;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Solution {
 
-    public static int romanToInt(String s) {
+    public int romanToInt(String s) {
         Map<Character, Integer> romanNumMap = new HashMap<>();
         int number = 0;
         romanNumMap.put('I', 1);
@@ -28,9 +27,4 @@ public class Solution {
         return number;
     }
 
-    public static void main(String[] args) {
-        System.out.println(romanToInt("III"));
-        System.out.println(romanToInt("LVIII"));
-        System.out.println(romanToInt("MCMXCIV"));
-    }
 }
