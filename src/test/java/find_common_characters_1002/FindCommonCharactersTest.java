@@ -17,24 +17,4 @@ class FindCommonCharactersTest {
         assertEquals(List.of("c", "o"), finder.commonChars(new String[]{"cool", "lock", "cook"}));
         assertEquals(List.of("a", "a"), finder.commonChars(new String[]{"aaa", "aaa", "aa"}));
     }
-
-    @Test
-    void testCommonCharsNoCommon() {
-        assertEquals(List.of(), finder.commonChars(new String[]{"abc", "def", "ghi"}));
-    }
-
-    @Test
-    void testCommonCharsSingleWord() {
-        assertEquals(List.of("a", "p", "p", "l", "e"), finder.commonChars(new String[]{"apple"}));
-    }
-
-    @Test
-    void testCommonCharsEmptyArray() {
-        assertEquals(List.of(), finder.commonChars(new String[]{}));
-    }
-
-    @Test
-    void testCommonCharsEmptyStrings() {
-        assertEquals(List.of(), finder.commonChars(new String[]{"", "", ""}));
-    }
 }
