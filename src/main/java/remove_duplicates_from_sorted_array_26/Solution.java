@@ -1,9 +1,8 @@
 package remove_duplicates_from_sorted_array_26;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /*
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
@@ -19,21 +18,17 @@ Return k.
 public class Solution {
 
     public int removeDuplicates(int[] nums) {
-        if (nums == null || nums.length < 1 || nums.length > 3 * Math.pow(10, 4)) {
-            return 0;
-        }
-        for (int num : nums) {
-            if (num < -100 || num > 100) {
-                return 0;
+        Set<Integer> seen = new HashSet<>();
+        int idx = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (!seen.contains(nums[i])) {
+                seen.add(nums[i]);
+                nums[idx] = nums[i];
+                idx++;
             }
         }
-        Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-        List<Integer> uniqueList = numSet.stream().sorted().toList();
-        for (int i = 0; i < uniqueList.size(); i++) {
-            nums[i] = uniqueList.get(i);
-        }
-        Arrays.fill(nums, numSet.size(), nums.length, 0);
-        return numSet.size();
+        Arrays.fill(nums, idx, nums.length, 0);
+        return idx;
     }
 
 }
