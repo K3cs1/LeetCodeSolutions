@@ -33,4 +33,24 @@ class ValidParenthesesTest {
         assertFalse(validParentheses.isValid("("));
         assertFalse(validParentheses.isValid(")"));
     }
+
+
+    @Test
+    void testValid() {
+        assertTrue(validParentheses.isValid("({}[])"));
+        assertTrue(validParentheses.isValid("({(){}()})()({(){}()})(){()}"));
+        assertTrue(validParentheses.isValid("[]{}(){()}((())){{}}}{()()}{{}{}}"));
+        assertTrue(validParentheses.isValid("[[]][][]"));
+    }
+
+    @Test
+    void testInvalid() {
+        assertFalse(validParentheses.isValid("(({})})"));
+        assertFalse(validParentheses.isValid("{}()))(()()({}}{}"));
+        assertFalse(validParentheses.isValid("}}}}"));
+        assertFalse(validParentheses.isValid("))))"));
+        assertFalse(validParentheses.isValid("{{{"));
+        assertFalse(validParentheses.isValid("((("));
+        assertFalse(validParentheses.isValid("}{"));
+    }
 }
