@@ -3,14 +3,24 @@ package valid_palindrome_125;
 public class ValidPalindrome {
 
     public boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-        for (char c : s.toLowerCase().toCharArray()) {
-            if (Character.isAlphabetic(c) || Character.isDigit(c)) {
-                sb.append(c);
+        int left = 0;
+        int right = s.length() - 1;
+        char[] chars = s.toCharArray();
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(chars[left])) {
+                left += 1;
             }
+            while (left < right && !Character.isLetterOrDigit(chars[right])) {
+                right -= 1;
+            }
+            while (Character.toLowerCase(chars[left]) !=
+                    Character.toLowerCase(chars[right])) {
+                return false;
+            }
+            left += 1;
+            right -= 1;
         }
-        String original = sb.toString();
-        return sb.reverse().toString().equalsIgnoreCase(original);
+        return true;
     }
 
 }
