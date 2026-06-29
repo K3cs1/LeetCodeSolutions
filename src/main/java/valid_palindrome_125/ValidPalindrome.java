@@ -13,7 +13,7 @@ public class ValidPalindrome {
             while (left < right && !Character.isLetterOrDigit(chars[right])) {
                 right -= 1;
             }
-            while (Character.toLowerCase(chars[left]) !=
+            if (Character.toLowerCase(chars[left]) !=
                     Character.toLowerCase(chars[right])) {
                 return false;
             }
