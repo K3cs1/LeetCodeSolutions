@@ -1,9 +1,5 @@
 package remove_duplicates_from_sorted_array_26;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 /*
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
 The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
@@ -17,18 +13,16 @@ Return k.
 */
 public class Solution {
 
-    public int removeDuplicates(int[] nums) {
-        Set<Integer> seen = new HashSet<>();
-        int idx = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (!seen.contains(nums[i])) {
-                seen.add(nums[i]);
-                nums[idx] = nums[i];
-                idx++;
-            }
-        }
-        Arrays.fill(nums, idx, nums.length, 0);
-        return idx;
-    }
+	public int removeDuplicates( int[] nums ) {
+		int n = nums.length;
+		int j = 1;
+		for ( int i = 1; i < n; i++ ) {
+			if ( nums[ i ] != nums[ i - 1 ] ) {
+				nums[ j ] = nums[ i ];
+				j++;
+			}
+		}
+		return j;
+	}
 
 }
