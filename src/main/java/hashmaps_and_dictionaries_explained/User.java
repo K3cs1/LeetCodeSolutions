@@ -4,6 +4,7 @@ public class User {
 	private int age;
 	private String name;
 	private boolean magic;
+	private String spell;
 
 	public void scream() {
 		System.out.println( "argh!" );
@@ -31,5 +32,13 @@ public class User {
 
 	public void setMagic( boolean magic ) {
 		this.magic = magic;
+	}
+
+	public String getSpell() {
+		return spell;
+	}
+
+	public void setSpell( String spell ) {
+		this.spell = spell;
 	}
 }
