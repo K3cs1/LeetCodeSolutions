@@ -2,22 +2,24 @@ package valid_palindrome_125;
 
 public class Solution {
 
-	public boolean isPalindrome( String s ) {
-		int l = 0;
-		int r = s.length() - 1;
-		while ( l < r ) {
-			while ( l < r && !Character.isLetterOrDigit( s.charAt( l ) ) ) {
-				l++;
+	public boolean isPalindrome(String s) {
+		int left = 0;
+		int right = s.length() - 1;
+		while (left < right) {
+			while (left < right &&
+					!Character.isLetterOrDigit(s.charAt(left))) {
+				left++;
 			}
-			while ( l < r && !Character.isLetterOrDigit( s.charAt( r ) ) ) {
-				r--;
+			while (left < right &&
+					!Character.isLetterOrDigit(s.charAt(right))) {
+				right--;
 			}
-			if ( Character.toLowerCase( s.charAt( l ) ) !=
-					Character.toLowerCase( s.charAt( r ) ) ) {
+			if (Character.toLowerCase(s.charAt(left)) !=
+					Character.toLowerCase(s.charAt(right))) {
 				return false;
 			}
-			l += 1;
-			r -= 1;
+			left += 1;
+			right -= 1;
 		}
 		return true;
 	}
