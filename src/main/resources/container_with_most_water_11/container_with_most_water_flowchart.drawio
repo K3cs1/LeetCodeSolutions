@@ -1,0 +1,80 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="Container With Most Water - O(n)" id="cwm-optimal">
+    <mxGraphModel dx="1556" dy="2213" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Start" vertex="1">
+          <mxGeometry height="50" width="160" x="340" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="init" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="left = 0&#xa;right = len(height) - 1&#xa;result = 0" vertex="1">
+          <mxGeometry height="70" width="220" x="310" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="loopCheck" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="left &lt; right ?" vertex="1">
+          <mxGeometry height="80" width="150" x="345" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="computeArea" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="width = right - left&#xa;h = min(height[left], height[right])&#xa;area = width * h" vertex="1">
+          <mxGeometry height="80" width="260" x="290" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="updateResult" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="result = max(result, area)" vertex="1">
+          <mxGeometry height="50" width="220" x="310" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="heightCheck" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="height[left] &lt; height[right] ?" vertex="1">
+          <mxGeometry height="90" width="180" x="330" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="moveLeft" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="left += 1" vertex="1">
+          <mxGeometry height="50" width="140" x="120" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="moveRight" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="right -= 1" vertex="1">
+          <mxGeometry height="50" width="140" x="600" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Return result" vertex="1">
+          <mxGeometry height="50" width="160" x="620" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="init">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="init" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="loopCheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="loopCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="computeArea" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="loopCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="end" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="computeArea" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="updateResult">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="updateResult" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="heightCheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="heightCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="moveLeft" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="heightCheck" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="moveRight" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="moveLeft" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="loopCheck">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="705" />
+              <mxPoint x="60" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="moveRight" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="loopCheck">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="705" />
+              <mxPoint x="790" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" value="Two-Pointer O(n) Solution — LeetCode 11: Container With Most Water" vertex="1">
+          <mxGeometry height="30" width="450" x="220" y="-40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
