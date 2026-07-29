@@ -5,8 +5,7 @@ import java.util.*;
 public class Solution {
 	public List<List<String>> groupAnagrams( String[] strs ) {
 		Map<String, List<String>> result = new HashMap<>();
-		for ( int i = 0; i < strs.length; i++ ) {
-			String str = strs[ i ];
+		for ( String str : strs ) {
 			char[] charArray = str.toCharArray();
 			Arrays.sort( charArray );
 			String key = Arrays.toString( charArray );
