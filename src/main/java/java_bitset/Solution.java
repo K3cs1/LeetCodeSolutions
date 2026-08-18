@@ -19,7 +19,7 @@ public class Solution {
 		}
 	}
 
-	private static void bitProcess( BitSet set1, BitSet set2, String operand, int setId, int bitId ) {
+	static void bitProcess( BitSet set1, BitSet set2, String operand, int setId, int bitId ) {
 		BitSet target = setId == 1 ? set1 : set2;
 		BitSet other = setId == 1 ? set2 : set1;
 		switch ( operand ) {
