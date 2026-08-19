@@ -7,7 +7,7 @@ public class Solution {
 		int right = nums.length - 1;
 		int mid = 0;
 		while (left <= right) {
-			mid = (left + right) / 2;
+			mid = left + ((right - left) / 2);
 			if (nums[mid] < target) {
 				left = mid + 1;
 			}
