@@ -7,13 +7,13 @@ public class Solution {
 
 		int size = arr.length;
 		int sumA = 0;
-		int maxSum = 0;
+		int maxSum = Integer.MIN_VALUE;
 		int left = 0;
 
 		for ( int right = 0; right < size; right++ ) {
 			sumA += arr[ right ];
-			maxSum = Math.max( maxSum, sumA );
-			if ( right - left + 1 >= k ) {
+			if ( right - left + 1 == k ) {
+				maxSum = Math.max( maxSum, sumA );
 				sumA = sumA - arr[ left ];
 				left++;
 			}
