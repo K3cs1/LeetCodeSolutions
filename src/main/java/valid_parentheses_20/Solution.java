@@ -1,29 +1,31 @@
 package valid_parentheses_20;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Stack;
 
-public class Solution {
-
+class Solution {
 	public boolean isValid(String s) {
 		Map<Character, Character> brackets = new HashMap<>();
 		brackets.put(')', '(');
 		brackets.put('}', '{');
 		brackets.put(']', '[');
-		Stack<Character> stack = new Stack<>();
-		for (char c : s.toCharArray()) {
-			if (brackets.containsKey(c)) {
-				if (stack.isEmpty() || stack.peek() != brackets.get(c)) {
+		List<Character> stack = new LinkedList<>();
+		for (int c = 0; c < s.length(); c++) {
+			char ch = s.charAt(c);
+			if (brackets.containsKey(ch)) {
+				if (!stack.isEmpty() && stack.getLast() == brackets.get(ch)) {
+					stack.removeLast();
+				}
+				else {
 					return false;
 				}
-				stack.pop();
 			}
 			else {
-				stack.push(c);
+				stack.add(ch);
 			}
 		}
 		return stack.isEmpty();
 	}
-
 }
