@@ -12,8 +12,7 @@ class Solution {
 		brackets.put('}', '{');
 		brackets.put(']', '[');
 		List<Character> stack = new LinkedList<>();
-		for (int c = 0; c < s.length(); c++) {
-			char ch = s.charAt(c);
+		for (char ch : s.toCharArray()) {
 			if (brackets.containsKey(ch)) {
 				if (!stack.isEmpty() && stack.getLast() == brackets.get(ch)) {
 					stack.removeLast();
