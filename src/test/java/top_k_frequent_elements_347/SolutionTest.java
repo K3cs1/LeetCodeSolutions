@@ -46,6 +46,12 @@ class SolutionTest {
 	}
 
 	@Test
+	void testKEqualsUniqueCountWithManyTies() {
+		int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6, 7, 7, 8, 2, 3, 1, 1, 1, 10, 11, 5, 6, 2, 4, 7, 8, 5, 6};
+		Assertions.assertArrayEquals(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 10, 11}, sorted(solution.topKFrequent(nums, 10)));
+	}
+
+	@Test
 	void testTopOne() {
 		int[] nums = {4, 4, 4, 2, 2, 1};
 		Assertions.assertArrayEquals(new int[] {4}, solution.topKFrequent(nums, 1));
